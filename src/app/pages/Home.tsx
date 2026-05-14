@@ -456,33 +456,37 @@ function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section className="border-b border-border">
-      <div className="max-w-3xl mx-auto px-5 sm:px-8 py-20 md:py-28">
-        <SectionLabel n="07" label="FAQ" />
-        <h2>Common questions.</h2>
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 py-20 md:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20 items-start">
+          <div>
+            <SectionLabel n="07" label="FAQ" />
+            <h2 className="max-w-xs">Common questions.</h2>
+          </div>
 
-        <div className="mt-10 md:mt-14 border-t border-border">
-          {faqs.map((f, i) => {
-            const isOpen = open === i;
-            return (
-              <div key={f.q} className="border-b border-border">
-                <button
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full flex items-start justify-between gap-6 text-left py-5 md:py-6 min-h-12"
-                >
-                  <span className="text-[15px] md:text-base font-medium tracking-tight pr-2">{f.q}</span>
-                  <span className={`mono text-accent text-lg leading-none transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>+</span>
-                </button>
-                <div
-                  className="grid transition-[grid-template-rows] duration-300 ease-out"
-                  style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
-                >
-                  <div className="overflow-hidden">
-                    <p className="pb-6 text-muted-foreground text-[15px] md:text-base leading-relaxed">{f.a}</p>
+          <div className="border-t border-border">
+            {faqs.map((f, i) => {
+              const isOpen = open === i;
+              return (
+                <div key={f.q} className="border-b border-border">
+                  <button
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    className="w-full flex items-start justify-between gap-6 text-left py-5 md:py-6 min-h-12"
+                  >
+                    <span className="text-[15px] md:text-base font-medium tracking-tight pr-2">{f.q}</span>
+                    <span className={`mono text-accent text-lg leading-none transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>+</span>
+                  </button>
+                  <div
+                    className="grid transition-[grid-template-rows] duration-300 ease-out"
+                    style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="pb-6 text-muted-foreground text-[15px] md:text-base leading-relaxed">{f.a}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
@@ -494,38 +498,44 @@ function BookingCTA() {
   const nextMonth = new Date(new Date().setMonth(new Date().getMonth() + 1)).toLocaleString("default", { month: "long" });
   return (
     <section>
-      <div className="max-w-3xl mx-auto px-5 sm:px-8 py-24 md:py-32">
-        <div>
-          <SectionLabel n="08" label="Book" />
-          <h2>See where you're losing money.</h2>
-          <p className="mt-6 text-muted-foreground text-lg max-w-2xl">
-            Book a free 20-minute assessment. I'll map your operation, show you the exact dollar math,
-            and hand you a written report — whether you hire me or not.
-          </p>
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 py-24 md:py-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div>
+            <SectionLabel n="08" label="Book" />
+            <h2>See where you're losing money.</h2>
+            <p className="mt-6 text-muted-foreground text-[15px] md:text-lg max-w-xl">
+              Book a free 20-minute assessment. I'll map your operation, show you the exact dollar math,
+              and hand you a written report — whether you hire me or not.
+            </p>
 
-          <div className="mt-8 border border-border bg-surface p-5 max-w-md">
-            <div className="mono text-xs uppercase tracking-widest text-accent mb-3">Availability</div>
-            <div className="space-y-2 text-[15px] md:text-base text-muted-foreground">
-              <div className="flex items-center justify-between">
+            <div className="mt-10">
+              <CTAButton>Get My Free Revenue Report →</CTAButton>
+            </div>
+            <p className="mono text-xs text-muted-foreground mt-6 max-w-md leading-relaxed">
+              Serving Roscoe · Rockford · Machesney Park · Loves Park · Belvidere · Rockton · South Beloit · Cherry Valley · Beloit & surrounding areas
+            </p>
+          </div>
+
+          <div className="bg-surface p-7 md:p-10 border border-border">
+            <div className="mono text-xs uppercase tracking-widest text-accent mb-6">Availability</div>
+            <div className="space-y-4 text-[15px] md:text-base text-muted-foreground">
+              <div className="flex items-center justify-between pb-4 border-b border-border/50">
                 <span>{month}</span>
                 <span className="mono text-accent">4 spots open</span>
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between pb-4 border-b border-border/50">
                 <span>{nextMonth}</span>
                 <span className="mono text-muted-foreground">Taking sign-ups</span>
               </div>
             </div>
-            <p className="mono text-xs text-muted-foreground mt-3 pt-3 border-t border-border max-w-none">
-              I limit installs to ~5/month to keep quality high.
-            </p>
+            
+            <div className="mt-8 pt-6 border-t border-border/50 flex gap-4 items-start">
+              <span className="inline-block w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0 opacity-80" />
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-none">
+                I limit installs to ~5/month to keep quality high and ensure I can personally monitor every system.
+              </p>
+            </div>
           </div>
-
-          <div className="mt-8">
-            <CTAButton>Get My Free Revenue Report →</CTAButton>
-          </div>
-          <p className="mono text-xs text-muted-foreground mt-5 max-w-none">
-            Serving Roscoe · Rockford · Machesney Park · Loves Park · Belvidere · Rockton · South Beloit · Cherry Valley · Beloit & surrounding areas
-          </p>
         </div>
       </div>
     </section>
