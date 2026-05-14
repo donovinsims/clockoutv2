@@ -3,6 +3,7 @@ import { CTAButton } from "../components/CTAButton";
 import { AgentModal } from "../components/AgentModal";
 import type { SelectedAgent } from "../components/AgentModal";
 import { sections } from "../data/agents";
+import { motion } from "motion/react";
 
 const tagColor: Record<string, string> = {
   Phone: "text-muted-foreground border-border-strong bg-surface",
@@ -48,48 +49,67 @@ export default function Agent() {
               <h2>{s.title}</h2>
             </div>
 
-            <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px overflow-hidden ${
+            <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-px overflow-hidden ${
               s.advanced ? "bg-surface-2 border border-border-strong" : "bg-border"
             }`}>
-              {s.cards.map((c) => (
-                <button
-                  key={c.name}
-                  onClick={() => setSelected({ card: c, sectionTitle: s.title, advanced: !!s.advanced })}
-                  className={`group w-full text-left p-6 transition-colors duration-150 cursor-pointer ${
-                    s.advanced
-                      ? "bg-background hover:bg-surface"
-                      : "bg-surface hover:bg-surface-2"
-                  }`}
-                >
-                  {/* Tags + recovery at top */}
-                  <div className="flex flex-wrap items-center gap-1.5 mb-4">
-                    {c.tags.map((t) => (
-                      <span
-                        key={t}
-                        className={`mono text-xs uppercase tracking-wider px-2 py-0.5 border ${tagColor[t] || "border-border text-muted-foreground"}`}
-                      >
-                        {t}
-                      </span>
-                    ))}
-                    {c.recovers && (
-                      <span className="ml-auto mono text-xs uppercase tracking-wider text-accent shrink-0">
-                        ◆ {c.recovers}
-                      </span>
-                    )}
-                  </div>
+              {s.cards.map((c, i) => {
+                const isLastInOddTotal = s.cards.length % 2 !== 0 && i === s.cards.length - 1;
+                // lg logic: 3 columns (span 2 each). If 4 items, 3+1 (1 spans 6). If 5 items, 3+2 (2 span 3 each).
+                const lgSpan = s.cards.length % 3 === 1 && i === s.cards.length - 1 
+                  ? "lg:col-span-6" 
+                  : s.cards.length % 3 === 2 && i >= s.cards.length - 2
+                  ? "lg:col-span-3"
+                  : "lg:col-span-2";
 
-                  {/* Name + description */}
-                  <h3 className="text-base font-semibold leading-snug tracking-tight mb-2">{c.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
+                return (
+                  <motion.button
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: i * 0.04, ease: [0.21, 0.47, 0.32, 0.98] }}
+                    key={c.name}
+                    onClick={() => setSelected({ card: c, sectionTitle: s.title, advanced: !!s.advanced })}
+                    className={`group w-full text-left p-7 md:p-8 transition-all duration-300 cursor-pointer relative overflow-hidden ${
+                      isLastInOddTotal ? "sm:col-span-2 lg:col-span-2" : ""
+                    } ${lgSpan} ${
+                      s.advanced
+                        ? "bg-background hover:bg-surface"
+                        : "bg-surface hover:bg-surface-2"
+                    }`}
+                  >
+                    {/* Hover Glow Effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(var(--accent-rgb),0.03)_0%,transparent_70%)]" />
+                    
+                    {/* Tags + recovery at top */}
+                    <div className="flex flex-wrap items-center gap-1.5 mb-5">
+                      {c.tags.map((t) => (
+                        <span
+                          key={t}
+                          className={`mono text-[11px] uppercase tracking-wider px-2 py-0.5 border ${tagColor[t] || "border-border text-muted-foreground"}`}
+                        >
+                          {t}
+                        </span>
+                      ))}
+                      {c.recovers && (
+                        <span className="ml-auto mono text-[11px] uppercase tracking-wider text-accent shrink-0">
+                          ◆ {c.recovers}
+                        </span>
+                      )}
+                    </div>
 
-                  {/* Footer affordance */}
-                  <div className="mt-5 flex items-center justify-between">
-                    <span className="mono text-[13px] uppercase tracking-wider transition-colors duration-150 text-muted-foreground group-hover:text-accent">
-                      Details →
-                    </span>
-                  </div>
-                </button>
-              ))}
+                    {/* Name + description */}
+                    <h3 className="text-lg font-semibold leading-snug tracking-tight mb-3 group-hover:text-accent transition-colors duration-300">{c.name}</h3>
+                    <p className="text-[15px] md:text-base text-muted-foreground leading-relaxed">{c.desc}</p>
+
+                    {/* Footer affordance */}
+                    <div className="mt-6 flex items-center justify-between">
+                      <span className="mono text-[13px] uppercase tracking-wider transition-colors duration-300 text-muted-foreground group-hover:text-accent flex items-center gap-2">
+                        Details <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+                      </span>
+                    </div>
+                  </motion.button>
+                );
+              })}
             </div>
           </div>
         </section>

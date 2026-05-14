@@ -9,14 +9,14 @@ export function CTAButton({
   className = "",
 }: { children: ReactNode; variant?: Variant; className?: string }) {
 
-  const base = "inline-flex items-center justify-center gap-2 transition-all duration-150 min-h-11 select-none";
+  const base = "inline-flex items-center justify-center gap-2 transition-all duration-300 min-h-12 select-none cursor-pointer";
   const styles: Record<Variant, string> = {
     primary:
-      "bg-accent text-accent-foreground hover:brightness-110 active:brightness-95 px-6 py-3.5 rounded-none mono text-sm font-semibold tracking-wide hover:shadow-[0_0_0_1px_rgba(95,220,122,0.12),0_8px_24px_-8px_rgba(95,220,122,0.10)]",
+      "bg-accent text-accent-foreground hover:scale-[1.02] active:scale-[0.98] px-7 py-4 rounded-none mono text-[15px] font-bold tracking-wider hover:shadow-[0_0_20px_-5px_rgba(var(--accent-rgb),0.3)]",
     ghost:
-      "border border-border-strong text-foreground hover:border-accent hover:text-accent px-5 py-3 rounded mono text-sm",
+      "border border-border-strong text-foreground hover:border-accent hover:text-accent px-6 py-3.5 rounded-none mono text-sm transition-colors",
     nav:
-      "bg-accent text-accent-foreground hover:brightness-110 px-4 py-2 rounded-none mono text-xs font-semibold tracking-wider uppercase",
+      "bg-accent text-accent-foreground hover:brightness-110 px-5 py-2.5 rounded-none mono text-[13px] font-bold tracking-widest uppercase",
   };
 
   return (
