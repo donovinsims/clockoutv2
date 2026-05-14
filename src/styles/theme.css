@@ -102,6 +102,7 @@
     font-weight: 700;
     line-height: 1.02;
     letter-spacing: -0.035em;
+    text-wrap: balance;
   }
 
   h2 {
@@ -110,6 +111,7 @@
     font-weight: 600;
     line-height: 1.08;
     letter-spacing: -0.028em;
+    text-wrap: balance;
   }
 
   h3 {
@@ -118,6 +120,7 @@
     font-weight: 600;
     line-height: 1.25;
     letter-spacing: -0.015em;
+    text-wrap: balance;
   }
 
   h4 {
@@ -130,6 +133,7 @@
   p {
     line-height: 1.6;
     max-width: 65ch;
+    text-wrap: pretty;
   }
 
   button {
@@ -140,6 +144,14 @@
   .mono {
     font-family: var(--font-mono);
     font-feature-settings: 'zero', 'ss01';
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   /* Subtle scrollbar */

@@ -13,7 +13,7 @@ export function CTAButton({
   const base = "inline-flex items-center justify-center gap-2 transition-all duration-150 min-h-11 select-none";
   const styles: Record<Variant, string> = {
     primary:
-      "bg-accent text-accent-foreground hover:brightness-110 active:brightness-95 px-6 py-3.5 rounded mono text-sm font-semibold tracking-wide shadow-[0_0_0_1px_rgba(95,220,122,0.4),0_8px_24px_-8px_rgba(95,220,122,0.45)]",
+      "bg-accent text-accent-foreground hover:brightness-110 active:brightness-95 px-6 py-3.5 rounded mono text-sm font-semibold tracking-wide hover:shadow-[0_0_0_1px_rgba(95,220,122,0.12),0_8px_24px_-8px_rgba(95,220,122,0.10)]",
     ghost:
       "border border-border-strong text-foreground hover:border-accent hover:text-accent px-5 py-3 rounded mono text-sm",
     nav:
