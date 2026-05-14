@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border mt-24">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           {/* Brand + tagline */}
           <div>
             <div className="flex items-center gap-1 mb-2">
@@ -26,6 +26,13 @@ export function Footer() {
               Belvidere · Rockton · South Beloit · Cherry Valley<br />
               Beloit & surrounding areas
             </address>
+          </div>
+
+          {/* Locations */}
+          <div className="flex flex-col gap-2">
+            <div className="mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1">Locations</div>
+            <Link to="/rockford-il" className="mono text-sm text-muted-foreground hover:text-accent transition-colors">Rockford, IL</Link>
+            <Link to="/roscoe-il" className="mono text-sm text-muted-foreground hover:text-accent transition-colors">Roscoe, IL</Link>
           </div>
 
           {/* Nav links */}
