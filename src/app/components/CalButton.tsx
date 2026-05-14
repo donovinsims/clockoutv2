@@ -38,7 +38,7 @@ export function CalButton({
         <ArrowRight
           size={18}
           className="transition-transform duration-200 group-hover:translate-x-0.5"
-          strokeWidth={2.25}
+          strokeWidth={1.75}
         />
       )}
     </button>

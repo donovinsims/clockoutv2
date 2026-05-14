@@ -99,7 +99,7 @@ export function ExitIntentModal() {
                 <X size={16} />
               </button>
 
-              <div className="mono text-[10px] uppercase tracking-[0.2em] text-accent mb-4">
+              <div className="mono text-[10px] uppercase tracking-[0.18em] text-accent mb-4">
                 One thing before you go.
               </div>
 

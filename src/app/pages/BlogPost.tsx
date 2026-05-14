@@ -24,7 +24,7 @@ export default function BlogPost() {
         </Link>
 
         <header className="mb-12 border-b border-border pb-10">
-          <div className="mono text-[13px] uppercase tracking-[0.2em] text-muted-foreground mb-4 flex flex-wrap gap-2">
+          <div className="mono text-[13px] uppercase tracking-[0.18em] text-muted-foreground mb-4 flex flex-wrap gap-2">
             <span>{post.business}</span><span>·</span>
             <span>{post.city}</span><span>·</span>
             <span>{post.date}</span>

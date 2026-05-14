@@ -59,7 +59,7 @@ function Hero() {
               ["You own it", "No lock-in"],
               ["30/60 day", "Check-ins included"],
             ].map(([k, v]) => (
-              <div key={k} className="bg-background p-5 md:p-6">
+              <div key={k} className="bg-background p-4 md:p-6">
                 <div className="mono text-xs uppercase tracking-[0.15em] text-accent mb-1.5">{k}</div>
                 <div className="text-sm text-foreground">{v}</div>
               </div>
@@ -109,7 +109,7 @@ function Problem() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.22, ease: "easeOut", delay: i * 0.07 }}
-              className="bg-background p-6 md:p-7 hover:bg-surface transition-colors"
+              className="bg-background p-6 md:p-8 hover:bg-surface transition-colors"
             >
               <div className="flex items-start justify-between mb-5">
                 <Icon size={22} className="text-accent" strokeWidth={1.75} />
@@ -119,7 +119,7 @@ function Problem() {
               <p className="text-[15px] md:text-base text-muted-foreground max-w-none">{detail}</p>
             </motion.div>
           ))}
-          <div className="bg-surface md:col-span-2 p-6 md:p-7 flex items-center justify-between gap-6">
+          <div className="bg-surface md:col-span-2 p-6 md:p-8 flex items-center justify-between gap-6">
             <p className="mono text-[13px] text-muted-foreground leading-relaxed max-w-none">
               → If two of these sound familiar, the assessment will pay for itself.
             </p>
@@ -166,7 +166,7 @@ function HowItWorks() {
                 {/* Spacer cell — alternates side */}
                 {i % 2 === 1 && <div className="hidden md:block" />}
 
-                <div className={`relative bg-background p-7 md:p-10 ${i % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
+                <div className={`relative bg-background p-8 md:p-12 ${i % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
                   {/* Connector dot */}
                   <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-accent border-2 border-background ${
                     i % 2 === 0 ? "-right-1.5" : "-left-1.5"
@@ -214,7 +214,7 @@ function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="bg-background p-7 md:p-9"
+            className="bg-background p-6 md:p-8"
           >
             <div className="mono text-xs uppercase tracking-widest text-muted-foreground mb-4">Single System Fix</div>
             <div className="flex items-baseline gap-2 mb-1">
@@ -224,7 +224,7 @@ function Pricing() {
             <ul className="space-y-3">
               {single.map((it) => (
                 <li key={it} className="flex gap-3 text-[15px] md:text-base">
-                  <Check size={18} className="text-accent shrink-0 mt-0.5" strokeWidth={2.5} />
+                  <Check size={18} className="text-accent shrink-0 mt-0.5" strokeWidth={1.75} />
                   <span className="text-muted-foreground leading-relaxed max-w-none">{it}</span>
                 </li>
               ))}
@@ -240,7 +240,7 @@ function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.22, ease: "easeOut", delay: 0.08 }}
-            className="bg-surface p-7 md:p-9"
+            className="bg-surface p-6 md:p-8"
           >
             <div className="mono text-xs uppercase tracking-widest text-accent mb-4">
               Operations Stack <span className="ml-2 text-muted-foreground">— most chosen</span>
@@ -252,7 +252,7 @@ function Pricing() {
             <ul className="space-y-3">
               {stack.map((it) => (
                 <li key={it} className="flex gap-3 text-[15px] md:text-base">
-                  <Check size={18} className="text-accent shrink-0 mt-0.5" strokeWidth={2.5} />
+                  <Check size={18} className="text-accent shrink-0 mt-0.5" strokeWidth={1.75} />
                   <span className="text-muted-foreground leading-relaxed max-w-none">{it}</span>
                 </li>
               ))}
@@ -264,7 +264,7 @@ function Pricing() {
         </div>
 
         {/* Risk-reversal row */}
-        <div className="mt-8 border border-border bg-surface p-5 md:p-6 flex flex-col sm:flex-row sm:items-start gap-4">
+        <div className="mt-8 border border-border bg-surface p-4 md:p-6 flex flex-col sm:flex-row sm:items-start gap-4">
           <Shield size={18} className="text-accent shrink-0 mt-0.5" strokeWidth={1.75} />
           <div>
             <p className="text-[15px] md:text-base font-medium mb-0.5 max-w-none">Works or I fix it — that's the deal.</p>
@@ -296,7 +296,7 @@ function OperatorCredibility() {
         <SectionLabel n="05" label="Who builds this" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border overflow-hidden">
-          <div className="bg-background p-7 md:p-10">
+          <div className="bg-background p-8 md:p-12">
             <h2 className="max-w-sm">I'm a local operator. Not an agency.</h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
               Based in Roscoe. I've built automations for HVAC contractors, roofers, salons, and
@@ -308,7 +308,7 @@ function OperatorCredibility() {
               You're not emailing a help desk.
             </p>
           </div>
-          <div className="bg-background p-7 md:p-10 flex flex-col justify-center gap-6 border-t md:border-t-0 border-border">
+          <div className="bg-background p-8 md:p-12 flex flex-col justify-center gap-6 border-t md:border-t-0 border-border">
             {specs.map(([k, v]) => (
               <div key={k}>
                 <div className="mono text-xs uppercase tracking-widest text-accent mb-1.5">{k}</div>
@@ -363,7 +363,7 @@ function SocialProof() {
         {/* Aggregate stats */}
         <div className="mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-border overflow-hidden">
           {aggregates.map(({ n, label }) => (
-            <div key={label} className="bg-surface p-5 md:p-6">
+            <div key={label} className="bg-surface p-4 md:p-6">
               <div className="text-2xl md:text-3xl font-semibold tracking-tight text-accent mb-1">{n}</div>
               <div className="mono text-xs uppercase tracking-wider text-muted-foreground">{label}</div>
             </div>
@@ -373,7 +373,7 @@ function SocialProof() {
         {/* Case studies — featured first card + 2-col below */}
         <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-px bg-border overflow-hidden">
           {/* Featured first result — spans full width */}
-          <div className="md:col-span-2 bg-background p-7 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div className="md:col-span-2 bg-background p-8 md:p-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <div className="mono text-[13px] uppercase tracking-wider text-muted-foreground mb-4">{outcomes[0].period}</div>
               <p className="text-xl md:text-2xl tracking-tight leading-snug max-w-none">{outcomes[0].result}</p>
@@ -394,7 +394,7 @@ function SocialProof() {
 
           {/* Remaining two results — 2-col */}
           {outcomes.slice(1).map((o) => (
-            <div key={o.result} className="bg-background p-7 md:p-9 flex flex-col justify-between gap-6">
+            <div key={o.result} className="bg-background p-6 md:p-8 flex flex-col justify-between gap-6">
               <div>
                 <div className="mono text-[13px] uppercase tracking-wider text-muted-foreground mb-4">{o.period}</div>
                 <p className="text-lg tracking-tight leading-snug max-w-none">{o.result}</p>
@@ -416,7 +416,7 @@ function SocialProof() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-px bg-border overflow-hidden">
-          <div className="bg-background p-7 md:p-9">
+          <div className="bg-background p-6 md:p-8">
             <p className="text-lg md:text-xl text-foreground leading-snug tracking-tight max-w-none">
               "The assessment showed me exactly where I was bleeding money — the system he built
               is already bringing in extra jobs. Local guy who actually delivers."
@@ -425,7 +425,7 @@ function SocialProof() {
               — HVAC contractor · Rockford, IL
             </div>
           </div>
-          <div className="bg-background p-7 md:p-9">
+          <div className="bg-background p-6 md:p-8">
             <p className="text-lg md:text-xl text-foreground leading-snug tracking-tight max-w-none">
               "Closed two roofs in six weeks from estimates I'd written off as dead. Paid for
               itself the first week. I wish I'd done this two years ago."
@@ -535,7 +535,7 @@ function BookingCTA() {
             </p>
           </div>
 
-          <div className="bg-surface p-7 md:p-10 border border-border">
+          <div className="bg-surface p-8 md:p-12 border border-border">
             <div className="mono text-xs uppercase tracking-widest text-accent mb-6">Availability</div>
             <div className="space-y-4 text-[15px] md:text-base text-muted-foreground">
               <div className="flex items-center justify-between pb-4 border-b border-border/50">
