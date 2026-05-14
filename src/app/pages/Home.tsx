@@ -108,7 +108,7 @@ function Problem() {
                 <span className="mono text-xs text-muted-foreground">0{i + 1}</span>
               </div>
               <div className="mb-2 font-semibold">{stat}</div>
-              <p className="text-sm text-muted-foreground max-w-none">{detail}</p>
+              <p className="text-[15px] md:text-base text-muted-foreground max-w-none">{detail}</p>
             </div>
           ))}
           <div className="bg-surface md:col-span-2 p-6 md:p-7 flex items-center justify-between gap-6">
@@ -165,7 +165,7 @@ function HowItWorks() {
                   }`} />
                   <div className="mono text-accent text-sm tracking-wider mb-6">{s.n}</div>
                   <h3 className="mb-3">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground max-w-none">{s.body}</p>
+                  <p className="text-[15px] md:text-base text-muted-foreground max-w-none">{s.body}</p>
                 </div>
 
                 {/* Spacer cell — alternates side */}
@@ -209,8 +209,8 @@ function Pricing() {
             <div className="mono text-xs text-muted-foreground mb-7">one-time</div>
             <ul className="space-y-3">
               {single.map((it) => (
-                <li key={it} className="flex gap-3 text-sm">
-                  <Check size={16} className="text-accent shrink-0 mt-0.5" strokeWidth={2.5} />
+                <li key={it} className="flex gap-3 text-[15px] md:text-base">
+                  <Check size={18} className="text-accent shrink-0 mt-0.5" strokeWidth={2.5} />
                   <span className="text-muted-foreground leading-relaxed max-w-none">{it}</span>
                 </li>
               ))}
@@ -232,8 +232,8 @@ function Pricing() {
             <div className="mono text-xs text-muted-foreground mb-7">scoped on a free call</div>
             <ul className="space-y-3">
               {stack.map((it) => (
-                <li key={it} className="flex gap-3 text-sm">
-                  <Check size={16} className="text-accent shrink-0 mt-0.5" strokeWidth={2.5} />
+                <li key={it} className="flex gap-3 text-[15px] md:text-base">
+                  <Check size={18} className="text-accent shrink-0 mt-0.5" strokeWidth={2.5} />
                   <span className="text-muted-foreground leading-relaxed max-w-none">{it}</span>
                 </li>
               ))}
@@ -248,8 +248,8 @@ function Pricing() {
         <div className="mt-8 border border-border bg-surface p-5 md:p-6 flex flex-col sm:flex-row sm:items-start gap-4">
           <Shield size={18} className="text-accent shrink-0 mt-0.5" strokeWidth={1.75} />
           <div>
-            <p className="text-sm font-medium mb-0.5 max-w-none">Works or I fix it — that's the deal.</p>
-            <p className="text-sm text-muted-foreground max-w-none">
+            <p className="text-[15px] md:text-base font-medium mb-0.5 max-w-none">Works or I fix it — that's the deal.</p>
+            <p className="text-[15px] md:text-base text-muted-foreground max-w-none">
               If a system I install isn't performing within 30 days, I diagnose and fix it at no charge.
               No retainer. No fine print.
             </p>
@@ -293,7 +293,7 @@ function OperatorCredibility() {
             {specs.map(([k, v]) => (
               <div key={k}>
                 <div className="mono text-xs uppercase tracking-widest text-accent mb-1.5">{k}</div>
-                <div className="text-sm text-foreground">{v}</div>
+                <div className="text-[15px] md:text-base text-foreground">{v}</div>
               </div>
             ))}
           </div>
@@ -362,7 +362,7 @@ function SocialProof() {
             <div className="md:text-right shrink-0">
               <div className="mono text-[13px] uppercase tracking-wider text-accent">{outcomes[0].system}</div>
               <div className="flex items-center md:justify-end gap-3 mt-2">
-                <div className="text-sm text-muted-foreground">{outcomes[0].biz}</div>
+                <div className="text-[15px] md:text-base text-muted-foreground">{outcomes[0].biz}</div>
                 <Link
                   to={`/blog/${outcomes[0].slug}`}
                   className="mono text-xs uppercase tracking-wider text-muted-foreground hover:text-accent transition-colors flex items-center gap-1"
@@ -383,7 +383,7 @@ function SocialProof() {
               <div className="border-t border-border pt-4 flex flex-col gap-1.5">
                 <div className="mono text-[13px] uppercase tracking-wider text-accent">{o.system}</div>
                 <div className="flex items-center justify-between">
-                  <div className="text-sm text-muted-foreground">{o.biz}</div>
+                  <div className="text-[15px] md:text-base text-muted-foreground">{o.biz}</div>
                   <Link
                     to={`/blog/${o.slug}`}
                     className="mono text-xs uppercase tracking-wider text-muted-foreground hover:text-accent transition-colors flex items-center gap-1"
@@ -456,11 +456,11 @@ function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section className="border-b border-border">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 py-20 md:py-28">
+      <div className="max-w-3xl mx-auto px-5 sm:px-8 py-20 md:py-28">
         <SectionLabel n="07" label="FAQ" />
         <h2>Common questions.</h2>
 
-        <div className="mt-10 md:mt-14 max-w-3xl border-t border-border">
+        <div className="mt-10 md:mt-14 border-t border-border">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
@@ -477,7 +477,7 @@ function FAQ() {
                   style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-6 text-muted-foreground text-sm md:text-[15px] max-w-2xl leading-relaxed">{f.a}</p>
+                    <p className="pb-6 text-muted-foreground text-[15px] md:text-base leading-relaxed">{f.a}</p>
                   </div>
                 </div>
               </div>
@@ -494,8 +494,8 @@ function BookingCTA() {
   const nextMonth = new Date(new Date().setMonth(new Date().getMonth() + 1)).toLocaleString("default", { month: "long" });
   return (
     <section>
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 py-24 md:py-32">
-        <div className="max-w-3xl">
+      <div className="max-w-3xl mx-auto px-5 sm:px-8 py-24 md:py-32">
+        <div>
           <SectionLabel n="08" label="Book" />
           <h2>See where you're losing money.</h2>
           <p className="mt-6 text-muted-foreground text-lg max-w-2xl">
@@ -505,7 +505,7 @@ function BookingCTA() {
 
           <div className="mt-8 border border-border bg-surface p-5 max-w-md">
             <div className="mono text-xs uppercase tracking-widest text-accent mb-3">Availability</div>
-            <div className="space-y-2 text-sm text-muted-foreground">
+            <div className="space-y-2 text-[15px] md:text-base text-muted-foreground">
               <div className="flex items-center justify-between">
                 <span>{month}</span>
                 <span className="mono text-accent">4 spots open</span>
