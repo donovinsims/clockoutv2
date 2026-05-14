@@ -80,7 +80,7 @@ export function AgentModal({
 
             {/* Header */}
             <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-border shrink-0">
-              <div className="mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground flex items-center gap-2">
+              <div className="mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground flex items-center gap-2">
                 <span className={advanced ? "text-fuchsia-300" : "text-accent"}>
                   {advanced ? "AI Agent" : "Workflow"}
                 </span>
@@ -122,13 +122,13 @@ export function AgentModal({
               <div className="px-5 sm:px-6 py-6 space-y-8">
                 {/* About */}
                 <div>
-                  <div className="mono text-[10px] uppercase tracking-[0.2em] text-accent mb-3">About</div>
+                  <div className="mono text-[10px] uppercase tracking-[0.18em] text-accent mb-3">About</div>
                   <p className="text-[15px] text-muted-foreground leading-relaxed">{card.detail}</p>
                 </div>
 
                 {/* How it works */}
                 <div>
-                  <div className="mono text-[10px] uppercase tracking-[0.2em] text-accent mb-4">How it works</div>
+                  <div className="mono text-[10px] uppercase tracking-[0.18em] text-accent mb-4">How it works</div>
                   <ol className="space-y-3" aria-label="Steps">
                     {card.howItWorks.map((step, i) => (
                       <li key={i} className="flex gap-4">
@@ -143,7 +143,7 @@ export function AgentModal({
 
                 {/* What to expect */}
                 <div>
-                  <div className="mono text-[10px] uppercase tracking-[0.2em] text-accent mb-3">What to expect</div>
+                  <div className="mono text-[10px] uppercase tracking-[0.18em] text-accent mb-3">What to expect</div>
                   <p className="text-sm text-muted-foreground leading-relaxed">{card.whatToExpect}</p>
                 </div>
 

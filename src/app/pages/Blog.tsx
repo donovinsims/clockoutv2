@@ -25,7 +25,7 @@ export default function Blog() {
               <li key={p.slug} className="bg-background hover:bg-surface transition-colors">
                 <Link to={`/blog/${p.slug}`} className="block p-7 md:p-9 group">
                   <div className="flex items-center justify-between mb-5">
-                    <span className="mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    <span className="mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
                       {p.business} · {p.city}
                     </span>
                     <ArrowUpRight size={18} className="text-muted-foreground group-hover:text-accent group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />

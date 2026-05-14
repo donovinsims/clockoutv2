@@ -5,10 +5,10 @@ import type { SelectedAgent } from "../components/AgentModal";
 import { sections } from "../data/agents";
 
 const tagColor: Record<string, string> = {
-  Phone: "text-sky-300 border-sky-300/30 bg-sky-300/5",
-  SMS: "text-emerald-300 border-emerald-300/30 bg-emerald-300/5",
-  Email: "text-amber-300 border-amber-300/30 bg-amber-300/5",
-  AI: "text-fuchsia-300 border-fuchsia-300/30 bg-fuchsia-300/5",
+  Phone: "text-muted-foreground border-border-strong bg-surface",
+  SMS: "text-muted-foreground border-border-strong bg-surface",
+  Email: "text-muted-foreground border-border-strong bg-surface",
+  AI: "text-accent border-accent/20 bg-accent/5",
 };
 
 export default function Agent() {
@@ -41,7 +41,7 @@ export default function Agent() {
           <div className="max-w-7xl mx-auto px-5 sm:px-8 py-16 md:py-20">
             <div className="mb-10 md:mb-12">
               <div className="mono text-[13px] uppercase tracking-[0.22em] text-muted-foreground mb-3 flex items-center gap-3">
-                <span className={s.advanced ? "text-fuchsia-300" : "text-accent"}>{s.tag}</span>
+                <span className="text-accent">{s.tag}</span>
                 <span className="w-8 h-px bg-border-strong" />
                 <span>{s.advanced ? "AI Agents" : "Workflows"}</span>
               </div>
@@ -49,7 +49,7 @@ export default function Agent() {
             </div>
 
             <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px overflow-hidden ${
-              s.advanced ? "bg-fuchsia-300/10 border border-fuchsia-300/20" : "bg-border"
+              s.advanced ? "bg-surface-2 border border-border-strong" : "bg-border"
             }`}>
               {s.cards.map((c) => (
                 <button
@@ -84,11 +84,7 @@ export default function Agent() {
 
                   {/* Footer affordance */}
                   <div className="mt-5 flex items-center justify-between">
-                    <span className={`mono text-[13px] uppercase tracking-wider transition-colors duration-150 ${
-                      s.advanced
-                        ? "text-muted-foreground group-hover:text-fuchsia-300"
-                        : "text-muted-foreground group-hover:text-accent"
-                    }`}>
+                    <span className="mono text-[13px] uppercase tracking-wider transition-colors duration-150 text-muted-foreground group-hover:text-accent">
                       Details →
                     </span>
                   </div>
