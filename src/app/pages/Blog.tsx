@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { posts } from "../data/posts";
 import { ArrowUpRight } from "lucide-react";
+import { CTAButton } from "../components/CTAButton";
 
 export default function Blog() {
   return (
@@ -40,6 +41,19 @@ export default function Blog() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section>
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 py-20 md:py-24">
+          <div className="max-w-2xl">
+            <h2 className="mb-4">See if your business has the same leaks.</h2>
+            <p className="text-muted-foreground mb-8">
+              Free 20-minute assessment. I map your operation, show you the dollar math, and hand you
+              a written report — whether you hire me or not.
+            </p>
+            <CTAButton>See Where You're Losing Money →</CTAButton>
+          </div>
         </div>
       </section>
     </main>
