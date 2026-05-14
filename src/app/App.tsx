@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import Agent from "./pages/Agent";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import LocationRockford from "./pages/LocationRockford";
+import LocationRoscoe from "./pages/LocationRoscoe";
 
 function ScrollAndHashHandler() {
   const loc = useLocation();
@@ -36,6 +38,8 @@ export default function App() {
             <Route path="/agent" element={<Agent />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/rockford-il" element={<LocationRockford />} />
+            <Route path="/roscoe-il" element={<LocationRoscoe />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </div>
