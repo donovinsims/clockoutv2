@@ -1,6 +1,7 @@
-import { PhoneOff, FileWarning, CalendarX, Star, Moon, Check, Shield } from "lucide-react";
-import { useState } from "react";
+import { PhoneOff, FileWarning, CalendarX, Star, Moon, ArrowRight, Check, Shield } from "lucide-react";
+import { useState, type ReactNode } from "react";
 import { Link } from "react-router";
+import { motion } from "motion/react";
 import { CTAButton } from "../components/CTAButton";
 
 export default function Home() {
@@ -33,7 +34,7 @@ function Hero() {
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-20 md:pt-32 pb-20 md:pb-28">
         {/* Asymmetric 60/40 split — text left, spec strip right */}
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-12 md:gap-16 items-end">
-          <div>
+          <FadeUp>
             <div className="mono text-[13px] uppercase tracking-[0.22em] text-accent mb-7 flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
               Booking open · <span className="text-foreground">4 spots left in {new Date().toLocaleString("default", { month: "long" })}</span>
@@ -49,7 +50,7 @@ function Hero() {
               <CTAButton>See Where You're Losing Money →</CTAButton>
               <span className="mono text-xs text-muted-foreground">20 minutes. No pitch. Written report either way.</span>
             </div>
-          </div>
+          </FadeUp>
 
           {/* Spec strip — sits alongside hero text on desktop */}
           <div className="grid grid-cols-2 gap-px bg-border overflow-hidden">
@@ -626,5 +627,19 @@ function SectionLabel({ n, label }: { n: string; label?: string }) {
       {label && <span className="w-8 h-px bg-border-strong" />}
       {label && <span>{label}</span>}
     </div>
+  );
+}
+
+function FadeUp({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.28, ease: "easeOut", delay }}
+      className={className}
+    >
+      {children}
+    </motion.div>
   );
 }
