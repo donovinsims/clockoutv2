@@ -1,6 +1,7 @@
 import { PhoneOff, FileWarning, CalendarX, Star, Moon, ArrowRight, Check, Shield } from "lucide-react";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Link } from "react-router";
+import { motion } from "motion/react";
 import { CTAButton } from "../components/CTAButton";
 
 export default function Home() {
@@ -32,7 +33,7 @@ function Hero() {
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-20 md:pt-32 pb-20 md:pb-28">
         {/* Asymmetric 60/40 split — text left, spec strip right */}
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-12 md:gap-16 items-end">
-          <div>
+          <FadeUp>
             <div className="mono text-[13px] uppercase tracking-[0.22em] text-accent mb-7 flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
               Booking open · <span className="text-foreground">4 spots left in {new Date().toLocaleString("default", { month: "long" })}</span>
@@ -48,7 +49,7 @@ function Hero() {
               <CTAButton>Get My Free Revenue Report →</CTAButton>
               <span className="mono text-xs text-muted-foreground">20 minutes. No pitch. Written report either way.</span>
             </div>
-          </div>
+          </FadeUp>
 
           {/* Spec strip — sits alongside hero text on desktop */}
           <div className="grid grid-cols-2 gap-px bg-border overflow-hidden">
@@ -102,14 +103,21 @@ function Problem() {
 
         <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-border overflow-hidden">
           {pains.map(({ icon: Icon, stat, detail }, i) => (
-            <div key={stat} className="bg-background p-6 md:p-7 hover:bg-surface transition-colors">
+            <motion.div
+              key={stat}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.22, ease: "easeOut", delay: i * 0.07 }}
+              className="bg-background p-6 md:p-7 hover:bg-surface transition-colors"
+            >
               <div className="flex items-start justify-between mb-5">
                 <Icon size={22} className="text-accent" strokeWidth={1.75} />
                 <span className="mono text-xs text-muted-foreground">0{i + 1}</span>
               </div>
               <div className="mb-2 font-semibold">{stat}</div>
               <p className="text-[15px] md:text-base text-muted-foreground max-w-none">{detail}</p>
-            </div>
+            </motion.div>
           ))}
           <div className="bg-surface md:col-span-2 p-6 md:p-7 flex items-center justify-between gap-6">
             <p className="mono text-[13px] text-muted-foreground leading-relaxed max-w-none">
@@ -201,10 +209,16 @@ function Pricing() {
 
         <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-border overflow-hidden">
           {/* Single fix */}
-          <div className="bg-background p-7 md:p-9">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
+            className="bg-background p-7 md:p-9"
+          >
             <div className="mono text-xs uppercase tracking-widest text-muted-foreground mb-4">Single System Fix</div>
             <div className="flex items-baseline gap-2 mb-1">
-              <span className="text-3xl md:text-4xl font-semibold tracking-tight">$150–$750</span>
+              <span className="text-3xl md:text-4xl font-semibold tracking-tight tabular">$150–$750</span>
             </div>
             <div className="mono text-xs text-muted-foreground mb-7">one-time</div>
             <ul className="space-y-3">
@@ -218,11 +232,16 @@ function Pricing() {
             <div className="mt-8">
               <CTAButton variant="ghost">Start with one fix</CTAButton>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Operations stack — featured with top accent bar */}
-          <div className="relative bg-surface p-7 md:p-9">
-            <span className="absolute top-0 inset-x-0 h-0.5 bg-accent" />
+          {/* Operations stack — featured */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.22, ease: "easeOut", delay: 0.08 }}
+            className="bg-surface p-7 md:p-9"
+          >
             <div className="mono text-xs uppercase tracking-widest text-accent mb-4">
               Operations Stack <span className="ml-2 text-muted-foreground">— most chosen</span>
             </div>
@@ -241,7 +260,7 @@ function Pricing() {
             <div className="mt-8">
               <CTAButton>Start with the Stack</CTAButton>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Risk-reversal row */}
@@ -539,6 +558,20 @@ function BookingCTA() {
         </div>
       </div>
     </section>
+  );
+}
+
+function FadeUp({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.28, ease: "easeOut", delay }}
+      className={className}
+    >
+      {children}
+    </motion.div>
   );
 }
 
