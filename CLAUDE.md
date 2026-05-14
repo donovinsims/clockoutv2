@@ -1,19 +1,19 @@
 # CLAUDE.md — Local Automation Consultancy Website
 
-Single source of truth for the entire site build. Read this before touching a file. Review `tasks/lessons.md` at the start of every session.
+Single source of truth for the entire site build. Read this before touching a file.
 
 -----
 
 ## Core Behavioral Rules
 
-1. **Plan Mode Default** Enter plan mode for ANY non-trivial task (3+ steps or architectural decisions). Write the plan to `tasks/todo.md` with checkable items and confirm before touching code. If something goes sideways mid-task — STOP and re-plan. Do not keep pushing.
+1. **Plan Mode Default** Enter plan mode for ANY non-trivial task (3+ steps or architectural decisions). Write the plan as a todo list (use the TodoWrite tool) with checkable items and confirm before touching code. If something goes sideways mid-task — STOP and re-plan. Do not keep pushing.
 1. **Simplicity First** Minimum code that solves the problem. No speculative features. No abstractions for single-use code. If a senior engineer would call it overcomplicated — simplify. For non-trivial changes, pause and ask “is there a more elegant way?” before presenting.
 1. **Surgical Changes** Touch only what you must. Don’t “improve” adjacent code, comments, or formatting. Don’t refactor what isn’t broken. Match existing style exactly.
 1. **Goal-Driven Execution** Define success criteria before starting. Loop until verified. State what success looks like — not just the steps.
 1. **Verification Before Done** Never mark a task complete without proving it works. Run tests, check logs, demonstrate correctness. Ask yourself: “Would a staff engineer approve this?” before calling it done.
 1. **Subagent Strategy** Offload research, exploration, and parallel analysis to subagents to keep the main context window clean. One task per subagent. For complex problems, throw more compute at it via subagents rather than cramming everything into one pass.
 1. **Autonomous Bug Fixing** When given a bug report: just fix it. Point at logs, errors, failing tests — then resolve them. Zero context-switching required from the user. Go fix failing behavior without being told how.
-1. **Self-Improvement Loop** After ANY correction from the user: update `tasks/lessons.md` with the pattern and a rule that prevents the same mistake. Review lessons at every session start. Ruthlessly iterate until mistake rate drops.
+1. **Self-Improvement Loop** After ANY correction from the user: acknowledge the pattern explicitly and apply the rule going forward. Ruthlessly iterate until mistake rate drops.
 1. **Hard Token Budgets** Enforce strict per-task and per-session limits. Stay well under any implied context limits.
 1. **Surface Conflicts, Don’t Average Them** When two patterns in the codebase disagree, call out the conflict explicitly instead of trying to satisfy both.
 1. **Read Before You Write** Fully read and understand adjacent/related code before adding or changing anything.
@@ -45,21 +45,19 @@ These rules are non-negotiable. When a trigger fires, invoke the corresponding s
 
 | Trigger Condition | Action |
 |---|---|
-| Writing or editing any copy, headline, CTA, or body text | Read `skills/README_COPYWRITING/direct-response-copy-gist.md` + `marketing-system.md` BEFORE writing |
+| Writing or editing any copy, headline, CTA, or body text | Read `direct-response-copy-skill.md` + `marketing-system.md` BEFORE writing |
 | Making any design decision — layout, color, typography, spacing, component styling | Invoke `/impeccable audit` or `/impeccable polish` |
 | After editing 2+ TSX/JSX/CSS files | Invoke `/vercel:react-best-practices` |
 | Dev server running + debugging, or verifying a feature end-to-end | Invoke `/vercel:verification` |
 | Deploying to Vercel | Invoke `/vercel:deploy` |
-| Any question about Next.js routing, Server Components, Server Actions, layouts | Invoke `/vercel:nextjs` |
-| Writing meta titles, meta descriptions, OG tags, structured data, or any blog post | Read `skills/marketingskills/skills/seo-audit/`, `meta-tags/`, `structured-data/` before proceeding |
+| Writing meta titles, meta descriptions, OG tags, structured data, or any blog post | Consult SEO best practices; reference `marketing-system.md` for brand voice constraints |
 | Building a feature that touches 3+ components or files | Invoke `/agent-teams:team-feature` |
 | Debugging with 2+ plausible root causes | Invoke `/agent-teams:parallel-debugging` |
 | End-of-feature review needed (security, performance, accessibility) | Invoke `/agent-teams:team-review` |
 | Any new code block added or changed | Ask silently: "Is there a simpler way?" — if complex, invoke `/simplify` |
 | Marking a multi-step task complete | Invoke `/review` before closing |
 | Before shipping any page or feature to production | Invoke `/security-review` |
-| User wants to clone or replicate Figma design references (`/agents`, `/blog`) | Invoke `/clone-website` with the target URL |
-| After any correction from the user | Update `tasks/lessons.md` immediately |
+| User wants to clone or replicate Figma design references (`/agent`, `/blog`) | Invoke `/clone-website` with the target URL |
 | Setting up a recurring or scheduled automated task | Invoke `/proactive` or `/schedule` |
 
 -----
@@ -68,12 +66,11 @@ These rules are non-negotiable. When a trigger fires, invoke the corresponding s
 
 Every non-trivial task follows this sequence — no exceptions:
 
-1. **Plan First** — Write plan to `tasks/todo.md` with checkable items
+1. **Plan First** — Create a todo list with checkable items using the TodoWrite tool
 1. **Verify Plan** — Check in before starting implementation
 1. **Track Progress** — Mark items complete as you go
 1. **Explain Changes** — High-level summary at each step
-1. **Document Results** — Add a review section to `tasks/todo.md` when done
-1. **Capture Lessons** — Update `tasks/lessons.md` after any correction or unexpected outcome
+1. **Document Results** — Summarize what was completed and any open items when done
 
 -----
 
@@ -100,7 +97,7 @@ Every non-trivial task follows this sequence — no exceptions:
 
 ## Content Sources (File Map)
 
-Every file in `/clockout-biz/` is source material. Read before writing any copy.
+All strategy docs live at the repo root. Read before writing any copy.
 
 |File                                   |Contains                                                                                                                                                  |
 |---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -109,9 +106,8 @@ Every file in `/clockout-biz/` is source material. Read before writing any copy.
 |`__Ideal_Customer_Profile__ICP_.md`    |ICP details. Exact words customers use, qualification signals, where to find them, who is NOT a good fit. Use the “exact words” section for copy verbatim.|
 |`marketing-system.md`                  |Brand voice rules, content formula, word/phrase allow-list and block-list. Use this to QA all copy.                                                       |
 |`assessment-call-script.md`            |Sales/assessment conversation framework — useful context for the buyer journey. Not needed for the build directly.                                        |
-|`retainer-playbook-winnebago-trades.md`|All 10 workflow types with build times, ROI math, and exact copy. Use for service cards.                                                                  |
 |`30-day-action-plan.md`                |Launch and GTM plan. Context only — not needed for the build.                                                                                             |
-|`direct-response-copy-gist.md`         |Direct response copywriting frameworks (Schwartz, Ogilvy, Halbert, etc.). Primary reference for all headlines, CTAs, page copy, and persuasive writing.   |
+|`direct-response-copy-skill.md`        |Direct response copywriting frameworks (Schwartz, Ogilvy, Halbert, etc.). Primary reference for all headlines, CTAs, page copy, and persuasive writing.   |
 
 -----
 
@@ -135,7 +131,7 @@ footer         → Name, location, email, Cal.com link
 
 **Additional pages:**
 
-- `/agents` — AI/agent platforms (Hermes Agent, OpenClaw, etc.). Design ref: https://clockout.figma.site/agents
+- `/agent` — AI/agent platforms (Hermes Agent, OpenClaw, etc.). Design ref: https://clockout.figma.site/agents
 - `/blog` — Content hub. Design ref: https://clockout.figma.site/blog
 
 **Navigation:** Simple top nav on all pages. No mega-menu or additional pages unless explicitly requested.
@@ -178,15 +174,43 @@ The voice: A smart neighbor who’s figured out what actually works and is shari
 
 ## Tech Stack & Quick Start
 
-**Stack:** Next.js 14 (App Router) + Tailwind CSS + TypeScript
+**Stack:** React 18 + Vite 6 + TypeScript + Tailwind CSS 4 + React Router 7 (HashRouter)
+**Package manager:** pnpm
+**Deployment:** Vercel → clockout.us (live production site)
 
 **Setup:**
 ```bash
-npm install
-npm run dev     # Dev server on http://localhost:3000
-npm run build   # Production build
-npm run start   # Start production server
+pnpm install
+pnpm dev        # Dev server on http://localhost:5173
+pnpm build      # Production build (static output)
 ```
+
+**Project structure:**
+```
+src/app/
+  App.tsx              # Root component, router, global modals
+  pages/
+    Home.tsx           # Landing page (all sections inline)
+    Agent.tsx          # /agent — Automation Arsenal
+    Blog.tsx           # /blog — Field Notes listing
+    BlogPost.tsx       # /blog/:slug — individual post
+  components/
+    Nav.tsx, Footer.tsx
+    CTAButton.tsx      # primary/ghost/nav variants
+    BookingContext.tsx  # React Context for global booking modal state
+    BookingModal.tsx   # Cal.com booking modal
+    AgentModal.tsx     # Automation detail modal
+    ExitIntentModal.tsx
+    ui/                # 60+ Shadcn/Radix UI components
+  data/
+    agents.ts          # Automation workflow definitions
+    posts.ts           # Blog post / case study data
+  lib/
+    cal.ts             # Cal.com integration
+```
+
+**Routes:** `/` | `/agent` | `/blog` | `/blog/:slug`
+All routes use HashRouter (`#/`). There is **no `/assessment` route** — all booking CTAs open the BookingModal.
 
 **Key Services:**
 - **Booking:** Cal.com embed — https://cal.com/clockoutcall/30min (inline widget, not link)
@@ -209,28 +233,21 @@ NOT: SaaS startup. NOT tech company. NOT purple gradients. NOT colorful accents.
 
 IS: Sleek, modern, monochrome. Subtle blacks, whites, and greys. Conversion-optimized — high contrast, minimal visual noise, large clear CTAs, generous whitespace, fast load.
 
-### Required Design Skill: Impeccable
-
-**Before writing any frontend code or making any design decision:**
-
-Read `skills/impeccable/DESIGN.md` first. Apply those skills alongside `direct-response-copy-gist.md` and `marketing-system.md`. Design and copy must work together toward conversion.
-
-Do not improvise the design system. The impeccable skills define the quality standard.
-
 ### ✅ Locked Decisions (do not change without owner approval)
 
-**Colors — Monochrome only:**
+**Colors (defined in `src/styles/theme.css` as CSS custom properties):**
 
-|Token            |Value                      |
-|-----------------|---------------------------|
-|Background       |`#111111`                  |
-|Card / section bg|`#1a1a1a`                  |
-|Border / dividers|`#2a2a2a`                  |
-|Primary text     |`#f5f5f5`                  |
-|Muted text       |`#aaaaaa`                  |
-|CTA buttons      |`#e5e5e5` (hover `#ffffff`)|
+|Token              |Value (oklch)                      |Approx hex  |
+|-------------------|-----------------------------------|------------|
+|`--background`     |`oklch(11.2% 0.006 65)`            |~`#171614`  |
+|`--surface`        |`oklch(13.8% 0.007 65)`            |~`#1f1d1a`  |
+|`--foreground`     |`oklch(94.2% 0.005 65)`            |~`#f0ede8`  |
+|`--muted-foreground`|`oklch(58.5% 0.010 65)`           |~`#8a8680`  |
+|`--border`         |`oklch(19.8% 0.007 65)`            |~`#2a2825`  |
+|`--accent`         |`oklch(82% 0.170 145)`             |~`#5FDC7A`  |
+|`--accent-foreground`|`oklch(11.0% 0.045 145)`         |dark green  |
 
-**Light & dark mode:** Both required. Dark is primary (palette above). Light inverts to equivalent contrast — white/near-white backgrounds, deep charcoal text, same monochrome discipline. No color introduced in either mode.
+Dark mode only. No light mode is currently implemented.
 
 **Typography — IBM Plex Sans:**
 
@@ -265,22 +282,13 @@ Do not improvise the design system. The impeccable skills define the quality sta
 
 ## Marketing & SEO Requirements
 
-**All marketing and SEO work must use skills from `skills/marketingskills/` exclusively. Do not wing it.** This covers: meta titles, meta descriptions, OG tags, structured data, keyword targeting, search-intent copy, blog post structure, and any content strategy decisions.
-
-**Before any marketing or SEO task:**
-
-Use the relevant subdirectories under `skills/marketingskills/skills/`: 
-- **Meta/titles/descriptions:** `meta-tags/`, `seo-audit/`, `keyword-research/`
-- **Structured data/schema:** `structured-data/`
-- **Blog/content:** `blog-strategy/`, `content-pillars/`
-
-Never make SEO or marketing decisions from general knowledge alone — always execute from the loaded skill files.
+**All marketing and copy work must use the strategy docs at repo root.** Read `direct-response-copy-skill.md` and `marketing-system.md` before writing any headline, CTA, or page copy. Reference `__The_Offer.md` for all pricing and ROI numbers.
 
 -----
 
 ## Section-by-Section Copy Reference
 
-All copy originates from `/clockout-biz/` files. `direct-response-copy-gist.md` is the primary persuasion reference for every page.
+All copy originates from the strategy docs at repo root. `direct-response-copy-skill.md` is the primary persuasion reference for every page.
 
 **Hero**
 
@@ -331,28 +339,19 @@ Footer note: “Assessment is always free to start. You own everything — no lo
 - Body: “That’s always my first question. Because the answer tells me exactly what to build. 20 minutes. I’ll show you the math. No pitch.”
 - CTA: “Book Your Free Assessment” → https://cal.com/clockoutcall/30min
 
-`/agents` and `/blog` — use Figma references + `direct-response-copy-gist.md` for all copy.
+`/agent` and `/blog` — use Figma references + `direct-response-copy-skill.md` for all copy.
 
 -----
 
-## Current Build Status
+## Current Status
+
+**Site is live at clockout.us.** All pages are built and deployed on Vercel.
 
 **Website Pages:**
-- [ ] Main landing page (hero → cta → footer)
-- [ ] `/agents` — AI workflow showcase (Figma ref: https://clockout.figma.site/agents)
-- [ ] `/blog` — Real automation examples (Figma ref: https://clockout.figma.site/blog)
-
-**Pricing & Packages (NEW)**
-
-Entry-level custom AI packages for rapid sales (14-day sprint):
-
-| Package | Price | Timeline | Included |
-|---------|-------|----------|----------|
-| Single Automation Setup | $150–$300 | 2–3 days | 1 AI workflow, setup, testing |
-| Mini Stack | $350–$500 | 5–7 days | 2–3 workflows, integration, basic monitoring |
-| Full Custom | $500–$750 | 7–14 days | 3–5 workflows, deep integration, 30-day monitoring |
-
-**Positioning:** “Holy shit this is possible!?” — show mind-blowing AI workflows on /agents and /blog, close fast at $150–$750.
+- [x] Main landing page (`/`) — hero → problem → how it works → pricing → credibility → social proof → FAQ → CTA
+- [x] `/agent` — Automation Arsenal (workflow cards + AgentModal)
+- [x] `/blog` — Field Notes listing
+- [x] `/blog/:slug` — Individual case study posts
 
 ---
 
@@ -361,8 +360,6 @@ Entry-level custom AI packages for rapid sales (14-day sprint):
 **DO**
 
 - [ ] Enter plan mode and write to plan file before any multi-step task
-- [ ] Review `tasks/lessons.md` at every session start
-- [ ] Update `tasks/lessons.md` after every correction or learning
 - [ ] Design and verify mobile first (375px) before desktop
 - [ ] Use exact dollar amounts — don’t round or estimate
 - [ ] Embed Cal.com inline (widget, not link)
@@ -371,8 +368,7 @@ Entry-level custom AI packages for rapid sales (14-day sprint):
 - [ ] Label CTAs “Book Your Free Assessment” or “Schedule AI Assessment”
 - [ ] Use real ROI math in service cards — this is the conversion engine
 - [ ] Implement both light and dark mode (dark primary)
-- [ ] Run `/impeccable audit` on /agents and /blog before launch
-- [ ] View Figma refs for /agents and /blog ONLY for content/structure — do NOT clone design
+- [ ] View Figma refs for /agent and /blog ONLY for content/structure — do NOT clone design
 
 **DON’T**
 

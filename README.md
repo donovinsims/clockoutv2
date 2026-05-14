@@ -1,11 +1,26 @@
+# Clockout v2
 
-  # Install design skill repos
+Marketing website for [Clockout](https://clockout.us) — local automation services for owner-operated businesses.
 
-  This is a code bundle for Install design skill repos. The original project is available at https://www.figma.com/design/9A2STPuVc4gK8UgCwi0LGZ/Install-design-skill-repos.
+## Tech Stack
 
-  ## Running the code
+- React 18 + Vite 6 + TypeScript
+- Tailwind CSS 4
+- React Router 7 (HashRouter)
+- pnpm
 
-  Run `npm i` to install the dependencies.
+## Dev
 
-  Run `npm run dev` to start the development server.
-  
+```bash
+pnpm install
+pnpm dev      # http://localhost:5173
+pnpm build    # static output
+```
+
+## Deploy
+
+Deployed on Vercel. Production site: **clockout.us**
+
+## Docs
+
+Strategy and business context docs live at repo root (`__Business_Summary.md`, `__The_Offer.md`, etc.). See `CLAUDE.md` for full codebase guide.
