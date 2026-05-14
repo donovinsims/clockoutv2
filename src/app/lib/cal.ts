@@ -1,6 +1,6 @@
 // Cal.com popup embed loader + trigger.
 // Replace CAL_LINK with the real cal.com username/event slug.
-export const CAL_LINK = "clockout/free-assessment";
+export const CAL_LINK = "donovin";
 
 let initialized = false;
 

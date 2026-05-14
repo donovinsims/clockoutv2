@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X } from "lucide-react";
-import { useBooking } from "./BookingContext";
+import { openCal } from "../lib/cal";
 
 const SESSION_KEY = "eim_shown";
 const MIN_TIME_ON_PAGE_MS = 8_000;
 
 export function ExitIntentModal() {
   const [visible, setVisible] = useState(false);
-  const { openBooking } = useBooking();
   const enteredAt = useRef(Date.now());
 
   useEffect(() => {
@@ -53,11 +52,6 @@ export function ExitIntentModal() {
       clearTimeout(mobileTimer);
     };
   }, []);
-
-  function handleCTA() {
-    setVisible(false);
-    openBooking();
-  }
 
   return (
     <AnimatePresence>
@@ -114,10 +108,10 @@ export function ExitIntentModal() {
 
               <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
                 <button
-                  onClick={handleCTA}
+                  onClick={() => { setVisible(false); openCal(); }}
                   className="bg-accent text-accent-foreground hover:brightness-110 active:brightness-95 transition px-5 py-3.5 min-h-[48px] w-full sm:w-auto mono text-sm font-semibold tracking-wide shadow-[0_0_0_1px_rgba(95,220,122,0.4),0_8px_24px_-8px_rgba(95,220,122,0.45)]"
                 >
-                  Book the free assessment →
+                  See Where You're Losing Money →
                 </button>
                 <button
                   onClick={() => setVisible(false)}
