@@ -1,10 +1,8 @@
-import { HashRouter, Routes, Route, useLocation } from "react-router";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router";
 import { useEffect } from "react";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { StickyMobileBar } from "./components/StickyMobileBar";
-import { BookingProvider } from "./components/BookingContext";
-import { BookingModal } from "./components/BookingModal";
 import { ExitIntentModal } from "./components/ExitIntentModal";
 import Home from "./pages/Home";
 import Agent from "./pages/Agent";
@@ -28,26 +26,23 @@ function ScrollAndHashHandler() {
 
 export default function App() {
   return (
-    <BookingProvider>
-      <HashRouter>
-        <ScrollAndHashHandler />
-        <div className="min-h-screen flex flex-col bg-background text-foreground pb-20 md:pb-0">
-          <Nav />
-          <div className="flex-1">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/agent" element={<Agent />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="*" element={<Home />} />
-            </Routes>
-          </div>
-          <Footer />
+    <BrowserRouter>
+      <ScrollAndHashHandler />
+      <div className="min-h-screen flex flex-col bg-background text-foreground pb-20 md:pb-0">
+        <Nav />
+        <div className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/agent" element={<Agent />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
         </div>
-        <StickyMobileBar />
-        <BookingModal />
-        <ExitIntentModal />
-      </HashRouter>
-    </BookingProvider>
+        <Footer />
+      </div>
+      <StickyMobileBar />
+      <ExitIntentModal />
+    </BrowserRouter>
   );
 }

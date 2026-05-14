@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { useBooking } from "./BookingContext";
+import { openCal } from "../lib/cal";
 
 type Variant = "primary" | "ghost" | "nav";
 
@@ -8,7 +8,6 @@ export function CTAButton({
   variant = "primary",
   className = "",
 }: { children: ReactNode; variant?: Variant; className?: string }) {
-  const { openBooking } = useBooking();
 
   const base = "inline-flex items-center justify-center gap-2 transition-all duration-150 min-h-11 select-none";
   const styles: Record<Variant, string> = {
@@ -21,7 +20,7 @@ export function CTAButton({
   };
 
   return (
-    <button onClick={openBooking} className={`${base} ${styles[variant]} ${className}`}>
+    <button onClick={openCal} className={`${base} ${styles[variant]} ${className}`}>
       {children}
     </button>
   );

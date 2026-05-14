@@ -12,7 +12,7 @@ export default function Blog() {
             Real businesses. <span className="text-accent">Real math.</span>
           </h1>
           <p className="mt-6 text-muted-foreground max-w-2xl text-lg">
-            One post per workflow installed. Here's what we found, what we built, and what it returned.
+            One post per workflow installed. Here's what I found, what I built, and what it returned.
           </p>
         </div>
       </section>

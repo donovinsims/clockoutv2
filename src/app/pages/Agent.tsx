@@ -27,7 +27,7 @@ export default function Agent() {
             <span className="text-accent">Nothing falling through the cracks.</span>
           </h1>
           <p className="mt-7 text-muted-foreground max-w-2xl text-lg">
-            Every system we can install for your business. Click any card to see exactly how it
+            Every system I can install for your business. Click any card to see exactly how it
             works, what to expect, and how long it takes to set up.
           </p>
         </div>
@@ -109,7 +109,7 @@ export default function Agent() {
               highest ROI. No guessing.
             </p>
             <div className="mt-10">
-              <CTAButton>Get My Free Revenue Report →</CTAButton>
+              <CTAButton>See Where You're Losing Money →</CTAButton>
             </div>
           </div>
         </div>

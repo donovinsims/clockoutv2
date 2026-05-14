@@ -43,7 +43,7 @@ function Hero() {
             follow up on estimates, and run while you sleep. Fixed price. Done in days. You own it.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
-            <CTAButton>Get My Free Revenue Report →</CTAButton>
+            <CTAButton>See Where You're Losing Money →</CTAButton>
             <span className="mono text-xs text-muted-foreground">20 minutes. No pitch. Written report either way.</span>
           </div>
         </div>
@@ -480,7 +480,7 @@ function BookingCTA() {
           </div>
 
           <div className="mt-8">
-            <CTAButton>Get My Free Revenue Report →</CTAButton>
+            <CTAButton>See Where You're Losing Money →</CTAButton>
           </div>
           <p className="mono text-xs text-muted-foreground mt-5">
             Serving Roscoe · Rockford · Machesney Park · Loves Park · Belvidere · Rockton · South Beloit · Cherry Valley · Beloit & surrounding areas
