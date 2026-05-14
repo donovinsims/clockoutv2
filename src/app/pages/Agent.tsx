@@ -19,7 +19,7 @@ export default function Agent() {
       {/* Hero */}
       <section className="border-b border-border">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-20 md:pt-28 pb-16 md:pb-20">
-          <div className="mono text-[11px] uppercase tracking-[0.22em] text-accent mb-7">
+          <div className="mono text-[13px] uppercase tracking-[0.22em] text-accent mb-7">
             The Arsenal · Showcase
           </div>
           <h1 className="max-w-4xl">
@@ -40,7 +40,7 @@ export default function Agent() {
         >
           <div className="max-w-7xl mx-auto px-5 sm:px-8 py-16 md:py-20">
             <div className="mb-10 md:mb-12">
-              <div className="mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-3 flex items-center gap-3">
+              <div className="mono text-[13px] uppercase tracking-[0.22em] text-muted-foreground mb-3 flex items-center gap-3">
                 <span className={s.advanced ? "text-fuchsia-300" : "text-accent"}>{s.tag}</span>
                 <span className="w-8 h-px bg-border-strong" />
                 <span>{s.advanced ? "AI Agents" : "Workflows"}</span>
@@ -48,8 +48,8 @@ export default function Agent() {
               <h2>{s.title}</h2>
             </div>
 
-            <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px overflow-hidden border ${
-              s.advanced ? "bg-fuchsia-300/10 border-fuchsia-300/20" : "bg-border border-border"
+            <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px overflow-hidden ${
+              s.advanced ? "bg-fuchsia-300/10 border border-fuchsia-300/20" : "bg-border"
             }`}>
               {s.cards.map((c) => (
                 <button
@@ -66,13 +66,13 @@ export default function Agent() {
                     {c.tags.map((t) => (
                       <span
                         key={t}
-                        className={`mono text-[10px] uppercase tracking-wider px-2 py-0.5 border ${tagColor[t] || "border-border text-muted-foreground"}`}
+                        className={`mono text-xs uppercase tracking-wider px-2 py-0.5 border ${tagColor[t] || "border-border text-muted-foreground"}`}
                       >
                         {t}
                       </span>
                     ))}
                     {c.recovers && (
-                      <span className="ml-auto mono text-[10px] uppercase tracking-wider text-accent shrink-0">
+                      <span className="ml-auto mono text-xs uppercase tracking-wider text-accent shrink-0">
                         ◆ {c.recovers}
                       </span>
                     )}
@@ -84,7 +84,7 @@ export default function Agent() {
 
                   {/* Footer affordance */}
                   <div className="mt-5 flex items-center justify-between">
-                    <span className={`mono text-[11px] uppercase tracking-wider transition-colors duration-150 ${
+                    <span className={`mono text-[13px] uppercase tracking-wider transition-colors duration-150 ${
                       s.advanced
                         ? "text-muted-foreground group-hover:text-fuchsia-300"
                         : "text-muted-foreground group-hover:text-accent"

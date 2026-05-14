@@ -31,36 +31,40 @@ function Hero() {
         }}
       />
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-20 md:pt-32 pb-20 md:pb-28">
-        <div className="max-w-4xl">
-          <div className="mono text-[11px] uppercase tracking-[0.22em] text-accent mb-7 flex items-center gap-2">
-            <span className="inline-block w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
-            Booking open · <span className="text-foreground">4 spots left in {new Date().toLocaleString("default", { month: "long" })}</span>
-          </div>
-          <h1>
-            Stop losing jobs to <span className="text-accent">missed calls.</span>
-          </h1>
-          <p className="mt-7 text-muted-foreground max-w-2xl text-[clamp(1.0625rem,1.6vw,1.25rem)]">
-            I build simple automations for local service businesses across the Stateline that recover leads,
-            follow up on estimates, and run while you sleep. Fixed price. Done in days. You own it.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
-            <CTAButton>See Where You're Losing Money →</CTAButton>
-            <span className="mono text-xs text-muted-foreground">20 minutes. No pitch. Written report either way.</span>
-          </div>
-        </div>
-
-        <div className="mt-20 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border overflow-hidden">
-          {[
-            ["Fixed price", "No retainers"],
-            ["3–21 days", "Avg install"],
-            ["You own it", "No lock-in"],
-            ["30/60 day", "Check-ins included"],
-          ].map(([k, v]) => (
-            <div key={k} className="bg-background p-5 md:p-6">
-              <div className="mono text-[10px] uppercase tracking-[0.15em] text-accent mb-1.5">{k}</div>
-              <div className="text-sm text-foreground">{v}</div>
+        {/* Asymmetric 60/40 split — text left, spec strip right */}
+        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-12 md:gap-16 items-end">
+          <div>
+            <div className="mono text-[13px] uppercase tracking-[0.22em] text-accent mb-7 flex items-center gap-2">
+              <span className="inline-block w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
+              Booking open · <span className="text-foreground">4 spots left in {new Date().toLocaleString("default", { month: "long" })}</span>
             </div>
-          ))}
+            <h1>
+              Stop losing jobs to <span className="text-accent">missed calls.</span>
+            </h1>
+            <p className="mt-7 text-muted-foreground max-w-2xl text-[clamp(1.0625rem,1.6vw,1.25rem)]">
+              I build simple automations for local service businesses across the Stateline that recover leads,
+              follow up on estimates, and run while you sleep. Fixed price. Done in days. You own it.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
+              <CTAButton>See Where You're Losing Money →</CTAButton>
+              <span className="mono text-xs text-muted-foreground">20 minutes. No pitch. Written report either way.</span>
+            </div>
+          </div>
+
+          {/* Spec strip — sits alongside hero text on desktop */}
+          <div className="grid grid-cols-2 gap-px bg-border overflow-hidden">
+            {[
+              ["Fixed price", "No retainers"],
+              ["3–21 days", "Avg install"],
+              ["You own it", "No lock-in"],
+              ["30/60 day", "Check-ins included"],
+            ].map(([k, v]) => (
+              <div key={k} className="bg-background p-5 md:p-6">
+                <div className="mono text-xs uppercase tracking-[0.15em] text-accent mb-1.5">{k}</div>
+                <div className="text-sm text-foreground">{v}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Trust strip */}
@@ -70,7 +74,7 @@ function Hero() {
             "avg payback under 2 weeks",
             "works or I fix it — guaranteed",
           ].map((item, i) => (
-            <span key={item} className="mono text-[11px] text-muted-foreground flex items-center gap-1.5">
+            <span key={item} className="mono text-xs text-muted-foreground flex items-center gap-1.5">
               {i > 0 && <span className="hidden sm:inline text-border-strong">·</span>}
               <span className="inline-block w-1 h-1 rounded-full bg-accent/60 shrink-0" />
               {item}
@@ -117,22 +121,22 @@ function Problem() {
         <SectionLabel n="02" />
         <h2 className="max-w-3xl">Sound familiar?</h2>
 
-        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border overflow-hidden">
+        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-border overflow-hidden">
           {pains.map(({ icon: Icon, quote, stat }, i) => (
             <div key={quote} className="bg-background p-6 md:p-7 hover:bg-surface transition-colors">
               <div className="flex items-start justify-between mb-5">
                 <Icon size={22} className="text-accent" strokeWidth={1.75} />
-                <span className="mono text-[10px] text-muted-foreground">0{i + 1}</span>
+                <span className="mono text-xs text-muted-foreground">0{i + 1}</span>
               </div>
               <p className="mb-3 text-foreground leading-snug">"{quote}"</p>
-              <p className="text-sm text-muted-foreground">{stat}</p>
+              <p className="text-[15px] md:text-base text-muted-foreground max-w-none">{stat}</p>
             </div>
           ))}
           <div className="bg-surface md:col-span-2 p-6 md:p-7 flex items-center justify-between gap-6">
-            <p className="mono text-[13px] text-muted-foreground leading-relaxed">
+            <p className="mono text-[13px] text-muted-foreground leading-relaxed max-w-none">
               → If two of these sound familiar, the assessment will pay for itself.
             </p>
-            <span className="mono text-[11px] uppercase tracking-wider text-accent shrink-0">Free · 20 min</span>
+            <span className="mono text-xs uppercase tracking-wider text-accent shrink-0">Free · 20 min</span>
           </div>
         </div>
       </div>
@@ -164,12 +168,12 @@ function HowItWorks() {
         <SectionLabel n="03" label="Process" />
         <h2 className="max-w-3xl">Fast. Fixed. Handed over.</h2>
 
-        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border overflow-hidden">
+        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-border overflow-hidden">
           {steps.map((s, i) => (
             <div key={s.n} className="relative bg-background p-7 md:p-8">
               <div className="mono text-accent text-sm tracking-wider mb-6">{s.n}</div>
               <h3 className="mb-3">{s.title}</h3>
-              <p className="text-sm text-muted-foreground">{s.body}</p>
+              <p className="text-[15px] md:text-base text-muted-foreground max-w-none">{s.body}</p>
               {i < steps.length - 1 && (
                 <ArrowRight size={18} className="hidden md:block absolute -right-[10px] top-1/2 -translate-y-1/2 bg-background text-muted-foreground p-0.5 rounded-full border border-border" />
               )}
@@ -226,17 +230,17 @@ function Services() {
         <SectionLabel n="04" label="What I Build" />
         <h2 className="max-w-3xl">Five fixes. Real math.</h2>
 
-        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border overflow-hidden">
+        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-border overflow-hidden">
           {serviceCards.map((s) => (
             <div key={s.name} className="bg-background p-6 md:p-8 flex flex-col gap-5">
               <div className="flex items-start justify-between gap-4">
                 <h3 className="text-base font-semibold leading-snug">{s.name}</h3>
                 <span className="mono text-sm font-semibold text-accent shrink-0">{s.price}</span>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              <p className="text-[15px] md:text-base text-muted-foreground leading-relaxed max-w-none">{s.desc}</p>
               <div className="mt-auto border-t border-border pt-4">
-                <div className="mono text-[11px] uppercase tracking-wider text-accent mb-0.5">{s.roi}</div>
-                <div className="mono text-[11px] text-muted-foreground">{s.roiDetail}</div>
+                <div className="mono text-xs uppercase tracking-wider text-accent mb-0.5">{s.roi}</div>
+                <div className="mono text-xs text-muted-foreground">{s.roiDetail}</div>
               </div>
             </div>
           ))}
@@ -245,23 +249,23 @@ function Services() {
           <div className="relative bg-surface md:col-span-2 p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <span className="absolute top-0 inset-x-0 h-0.5 bg-accent" />
             <div className="flex-1">
-              <div className="mono text-[11px] uppercase tracking-widest text-accent mb-2">
+              <div className="mono text-xs uppercase tracking-widest text-accent mb-2">
                 Operations Stack <span className="ml-2 text-muted-foreground">— most chosen</span>
               </div>
               <h3 className="text-lg font-semibold mb-2">Full back-office fix. Done in 14–21 days.</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-xl">
+              <p className="text-[15px] md:text-base text-muted-foreground leading-relaxed max-w-xl">
                 3–5 core workflows bundled, fully integrated, with a 60-day monitoring window. Built around how your operation actually runs — no templates, no guessing.
               </p>
             </div>
             <div className="shrink-0 flex flex-col gap-2">
               <div className="mono text-2xl font-semibold">from $1,200</div>
-              <div className="mono text-[11px] text-muted-foreground">scoped on a free call</div>
+              <div className="mono text-xs text-muted-foreground">scoped on a free call</div>
               <CTAButton className="mt-2">See Where You're Losing Money →</CTAButton>
             </div>
           </div>
         </div>
 
-        <p className="mt-8 mono text-sm text-muted-foreground">
+        <p className="mt-8 mono text-xs text-muted-foreground max-w-none">
           Not sure which fits? <span className="text-foreground">The free assessment tells you exactly — with dollar math.</span>
         </p>
       </div>
@@ -289,12 +293,12 @@ function Pricing() {
         <SectionLabel n="05" label="Pricing" />
         <h2>Two ways to start.</h2>
 
-        <p className="mt-4 text-sm text-muted-foreground max-w-xl">
+        <p className="mt-4 text-[15px] md:text-base text-muted-foreground max-w-xl">
           At 2 recovered calls/week, the Single Fix pays for itself in under 2 weeks.
           Most operations recover more.
         </p>
 
-        <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border overflow-hidden">
+        <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-px bg-border overflow-hidden">
           {/* Single fix */}
           <div className="bg-background p-7 md:p-9">
             <div className="mono text-xs uppercase tracking-widest text-muted-foreground mb-4">Single System Fix</div>
@@ -344,14 +348,14 @@ function Pricing() {
           <Shield size={18} className="text-accent shrink-0 mt-0.5" strokeWidth={1.75} />
           <div>
             <p className="text-sm font-medium mb-0.5">Works or I fix it — that's the deal.</p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-[15px] md:text-base text-muted-foreground max-w-none">
               If a system I install isn't performing within 30 days, I diagnose and fix it at no charge.
               No retainer. No fine print.
             </p>
           </div>
         </div>
 
-        <p className="mt-8 mono text-sm text-muted-foreground">
+        <p className="mt-8 mono text-xs text-muted-foreground max-w-none">
           Not sure which fits? <span className="text-foreground">The free assessment tells you exactly.</span>
         </p>
       </div>
@@ -371,15 +375,15 @@ function OperatorCredibility() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-20 md:py-28">
         <SectionLabel n="06" label="Who builds this" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border overflow-hidden">
           <div className="bg-background p-7 md:p-10">
             <h2 className="max-w-sm">I'm a local operator. Not an agency.</h2>
-            <p className="mt-5 text-muted-foreground leading-relaxed">
+            <p className="mt-5 text-[15px] md:text-base text-muted-foreground leading-relaxed max-w-none">
               Based in Roscoe. I've built automations for HVAC contractors, roofers, salons, and
               service businesses across the Stateline region. Every system I install, I've run in a real
               operation. No offshore teams. No generic templates.
             </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
+            <p className="mt-4 text-[15px] md:text-base text-muted-foreground leading-relaxed max-w-none">
               When something breaks, I fix it. When you want to change something, we change it.
               You're not emailing a help desk.
             </p>
@@ -387,8 +391,8 @@ function OperatorCredibility() {
           <div className="bg-background p-7 md:p-10 flex flex-col justify-center gap-6 border-t md:border-t-0 border-border">
             {specs.map(([k, v]) => (
               <div key={k}>
-                <div className="mono text-[10px] uppercase tracking-widest text-accent mb-1.5">{k}</div>
-                <div className="text-sm text-foreground">{v}</div>
+                <div className="mono text-xs uppercase tracking-widest text-accent mb-1.5">{k}</div>
+                <div className="text-[15px] md:text-base text-foreground max-w-none">{v}</div>
               </div>
             ))}
           </div>
@@ -437,29 +441,29 @@ function SocialProof() {
         <h2 className="max-w-3xl">Real businesses. Actual math.</h2>
 
         {/* Aggregate stats */}
-        <div className="mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border overflow-hidden">
+        <div className="mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-border overflow-hidden">
           {aggregates.map(({ n, label }) => (
             <div key={label} className="bg-surface p-5 md:p-6">
               <div className="text-2xl md:text-3xl font-semibold tracking-tight text-accent mb-1">{n}</div>
-              <div className="mono text-[11px] uppercase tracking-wider text-muted-foreground">{label}</div>
+              <div className="mono text-xs uppercase tracking-wider text-muted-foreground">{label}</div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border overflow-hidden">
+        <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-px bg-border overflow-hidden">
           {outcomes.map((o) => (
             <div key={o.result} className="bg-background p-7 md:p-9 flex flex-col justify-between gap-6">
               <div>
-                <div className="mono text-[10px] uppercase tracking-wider text-muted-foreground mb-4">{o.period}</div>
+                <div className="mono text-xs uppercase tracking-wider text-muted-foreground mb-4">{o.period}</div>
                 <p className="text-lg tracking-tight leading-snug">{o.result}</p>
               </div>
               <div className="border-t border-border pt-4 flex flex-col gap-1.5">
-                <div className="mono text-[10px] uppercase tracking-wider text-accent">{o.system}</div>
+                <div className="mono text-xs uppercase tracking-wider text-accent">{o.system}</div>
                 <div className="flex items-center justify-between">
                   <div className="text-sm text-muted-foreground">{o.biz}</div>
                   <Link
                     to={`/blog/${o.slug}`}
-                    className="mono text-[10px] uppercase tracking-wider text-muted-foreground hover:text-accent transition-colors flex items-center gap-1"
+                    className="mono text-xs uppercase tracking-wider text-muted-foreground hover:text-accent transition-colors flex items-center gap-1"
                   >
                     Full story →
                   </Link>
@@ -469,7 +473,7 @@ function SocialProof() {
           ))}
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border overflow-hidden">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-px bg-border overflow-hidden">
           <div className="bg-background p-7 md:p-9">
             <p className="text-lg md:text-xl text-foreground leading-snug tracking-tight">
               "The assessment showed me exactly where I was bleeding money — the system he built
@@ -550,7 +554,7 @@ function FAQ() {
                   style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-6 text-muted-foreground text-sm md:text-[15px] max-w-2xl leading-relaxed">{f.a}</p>
+                    <p className="pb-6 text-[15px] md:text-base text-muted-foreground max-w-2xl leading-relaxed">{f.a}</p>
                   </div>
                 </div>
               </div>
@@ -571,13 +575,13 @@ function BookingCTA() {
         <div className="max-w-3xl">
           <SectionLabel n="09" label="Book" />
           <h2>See where you're losing money.</h2>
-          <p className="mt-6 text-muted-foreground text-lg max-w-2xl">
+          <p className="mt-6 text-[15px] md:text-base text-muted-foreground max-w-2xl">
             Book a free 20-minute assessment. I'll map your operation, show you the exact dollar math,
             and hand you a written report — whether you hire me or not.
           </p>
 
           <div className="mt-8 border border-border bg-surface p-5 max-w-md">
-            <div className="mono text-[10px] uppercase tracking-widest text-accent mb-3">Availability</div>
+            <div className="mono text-xs uppercase tracking-widest text-accent mb-3">Availability</div>
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center justify-between">
                 <span>{month}</span>
@@ -588,7 +592,7 @@ function BookingCTA() {
                 <span className="mono text-muted-foreground">Taking sign-ups</span>
               </div>
             </div>
-            <p className="mono text-[10px] text-muted-foreground mt-3 pt-3 border-t border-border">
+            <p className="mono text-xs text-muted-foreground mt-3 pt-3 border-t border-border">
               I limit installs to ~5/month to keep quality high.
             </p>
           </div>
@@ -596,7 +600,7 @@ function BookingCTA() {
           <div className="mt-8">
             <CTAButton>See Where You're Losing Money →</CTAButton>
           </div>
-          <p className="mono text-xs text-muted-foreground mt-5">
+          <p className="mono text-xs text-muted-foreground mt-5 max-w-none">
             Serving Roscoe · Rockford · Machesney Park · Loves Park · Belvidere · Rockton · South Beloit · Cherry Valley · Beloit & surrounding areas
           </p>
         </div>
@@ -607,7 +611,7 @@ function BookingCTA() {
 
 function SectionLabel({ n, label }: { n: string; label?: string }) {
   return (
-    <div className="mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-5 flex items-center gap-3">
+    <div className="mono text-[13px] uppercase tracking-[0.22em] text-muted-foreground mb-5 flex items-center gap-3">
       <span className="text-accent">{n}</span>
       {label && <span className="w-8 h-px bg-border-strong" />}
       {label && <span>{label}</span>}

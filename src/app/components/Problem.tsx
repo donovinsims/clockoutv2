@@ -44,7 +44,7 @@ export function Problem() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--co-line)] border border-[var(--co-line)] rounded-lg overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--co-line)] rounded-lg overflow-hidden">
           {pains.map(({ icon: Icon, stat, detail }, i) => (
             <div
               key={stat}
@@ -52,7 +52,7 @@ export function Problem() {
             >
               <div className="flex items-start justify-between mb-5">
                 <Icon size={24} className="text-[var(--co-accent)]" strokeWidth={1.75} />
-                <span className="font-mono text-[var(--co-fg-mute)]" style={{ fontSize: "0.6875rem" }}>
+                <span className="font-mono text-[var(--co-fg-mute)]" style={{ fontSize: "0.8125rem" }}>
                   0{i + 1}
                 </span>
               </div>

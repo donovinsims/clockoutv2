@@ -15,7 +15,7 @@ export function Hero() {
       />
       <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-20 md:pt-32 pb-20 md:pb-28">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 font-mono uppercase tracking-[0.18em] text-[var(--co-accent)] mb-8" style={{ fontSize: "0.75rem" }}>
+          <div className="inline-flex items-center gap-2 font-mono uppercase tracking-[0.18em] text-[var(--co-accent)] mb-8" style={{ fontSize: "0.8125rem" }}>
             <span className="inline-block w-2 h-2 rounded-full bg-[var(--co-accent)] animate-pulse" />
             Roscoe · Rockford · Machesney Park · Loves Park · Belvidere · Beloit & more
           </div>
@@ -51,7 +51,7 @@ export function Hero() {
         </div>
 
         {/* Spec strip */}
-        <div className="mt-20 md:mt-28 grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--co-line)] border border-[var(--co-line)] rounded-lg overflow-hidden">
+        <div className="mt-20 md:mt-28 grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--co-line)] rounded-lg overflow-hidden">
           {[
             ["Fixed price", "No retainers"],
             ["3–21 days", "Average install"],
@@ -59,7 +59,7 @@ export function Hero() {
             ["30/60 day", "Check-ins included"],
           ].map(([k, v]) => (
             <div key={k} className="bg-[var(--co-bg)] p-5 md:p-6">
-              <div className="font-mono text-[var(--co-accent)] mb-1" style={{ fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              <div className="font-mono text-[var(--co-accent)] mb-1" style={{ fontSize: "0.8125rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                 {k}
               </div>
               <div className="text-[var(--co-fg)]" style={{ fontSize: "0.9375rem" }}>
