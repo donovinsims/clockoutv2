@@ -16,11 +16,10 @@ export function Footer() {
             </p>
           </div>
 
-          {/* NAP — Name / Address / Phone */}
+          {/* NAP — Name / Address */}
           <div className="flex flex-col gap-2">
-            <div className="mono text-xs uppercase tracking-widest text-muted-foreground mb-1">Contact</div>
-            <a href="tel:+18155550100" className="mono text-sm text-foreground hover:text-accent transition-colors">(815) 555-0100</a>
-            <a href="mailto:hello@clockout.us" className="mono text-sm text-muted-foreground hover:text-accent transition-colors">hello@clockout.us</a>
+            <div className="mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1">Contact</div>
+            <a href="mailto:hello@clockout.us" className="mono text-sm text-foreground hover:text-accent transition-colors">hello@clockout.us</a>
             <address className="not-italic mono text-xs text-muted-foreground mt-1 leading-relaxed">
               Roscoe, IL 61073<br />
               Roscoe · Rockford · Machesney Park · Loves Park<br />
@@ -31,7 +30,7 @@ export function Footer() {
 
           {/* Nav links */}
           <div className="flex flex-col gap-2 md:items-end">
-            <div className="mono text-xs uppercase tracking-widest text-muted-foreground mb-1">Site</div>
+            <div className="mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1">Site</div>
             <Link to="/agent" className="mono text-sm text-muted-foreground hover:text-accent transition-colors">Agent Arsenal</Link>
             <Link to="/blog" className="mono text-sm text-muted-foreground hover:text-accent transition-colors">Field Notes</Link>
             <a href="mailto:hello@clockout.us" className="mono text-sm text-muted-foreground hover:text-accent transition-colors">Email</a>

@@ -36,7 +36,7 @@ export function Nav() {
           <NavLink onClick={() => gotoAnchor("#pricing")}>Pricing</NavLink>
           <Link to="/agent" className={pageLink("/agent")}>Agent</Link>
           <Link to="/blog" className={pageLink("/blog")}>Blog</Link>
-          <div className="ml-2"><CTAButton variant="nav">Get Free Report</CTAButton></div>
+          <div className="ml-2"><CTAButton variant="nav">Free Revenue Report</CTAButton></div>
         </nav>
 
         <button
