@@ -6,7 +6,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://clockout.us/agent</loc>
+    <loc>https://clockout.us/agents</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -27,6 +27,41 @@
   </url>
   <url>
     <loc>https://clockout.us/blog/salon-beloit-review-request</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clockout.us/blog/plumber-loves-park-missed-call-textback</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clockout.us/blog/landscaper-machesney-estimate-followup</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clockout.us/blog/dental-rockford-no-show-recovery</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clockout.us/blog/auto-repair-belvidere-review-request</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clockout.us/blog/hvac-beloit-invoice-followup</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clockout.us/blog/roofer-machesney-review-request</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clockout.us/blog/cleaning-roscoe-missed-call-textback</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
