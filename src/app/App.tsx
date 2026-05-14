@@ -10,6 +10,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import LocationRockford from "./pages/LocationRockford";
 import LocationRoscoe from "./pages/LocationRoscoe";
+import { Analytics } from "@vercel/analytics/react";
 
 function ScrollAndHashHandler() {
   const loc = useLocation();
@@ -47,6 +48,7 @@ export default function App() {
       </div>
       <StickyMobileBar />
       <ExitIntentModal />
+      <Analytics />
     </BrowserRouter>
   );
 }
